@@ -19,7 +19,7 @@ function get_arch_images(){
 }
 
 image="bahetiamit/git"
-if [[ "$TRAVIS_BRANCH" == "master" && "$TRAVIS_PULL_REQUEST" == false ]]; then
+if [[ "$TRAVIS_BRANCH" == "mypower" && "$TRAVIS_PULL_REQUEST" == false ]]; then
   docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD	
   NEXT_TAG=$(cat tag.txt)
   VERSION=$(docker run -i --rm ${image}:latest-amd64 version|awk '{print $NF}')

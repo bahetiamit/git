@@ -34,7 +34,7 @@ VERSION=($(docker run -i --rm ${image}:latest-${ARCH} version|awk '{print $NF}')
 echo ${VERSION}
 docker tag ${image}:${NEXT_TAG}-${ARCH} ${image}:v${VERSION}-${ARCH}
 
-if [[ "$TRAVIS_BRANCH" == "master" && "$TRAVIS_PULL_REQUEST" == false ]]; then
+if [[ "$TRAVIS_BRANCH" == "mypower" && "$TRAVIS_PULL_REQUEST" == false ]]; then
   docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
   docker push ${image}:${NEXT_TAG}-${ARCH}
   docker push ${image}:latest-${ARCH}

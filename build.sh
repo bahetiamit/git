@@ -9,7 +9,7 @@
 
 set -e
 
-image="alpine/git"
+image="bahetiamit/git"
 ARCH=${TRAVIS_CPU_ARCH:-"amd64"}
 LATEST_TAG=$(git ls-remote --tags origin |awk -F \/ '{print $NF}'|grep ^1.0. |sort -Vr|head -1)
 if [[ -z "${LATEST_TAG}" ]]
@@ -41,7 +41,7 @@ if [[ "$TRAVIS_BRANCH" == "master" && "$TRAVIS_PULL_REQUEST" == false ]]; then
   docker push ${image}:v${VERSION}-${ARCH}
   if [[ "$ARCH" == "amd64" ]]; then
     # push the tag
-    git remote set-url origin https://${GITHUB_NAME}:${GITHUB_TOKEN}@github.com/alpine-docker/git.git
+    git remote set-url origin https://${GITHUB_NAME}:${GITHUB_TOKEN}@github.com/bahetiamit/git.git
     echo "Set github Username & Email"
     git config user.name "ci"
     git config user.email "ci"

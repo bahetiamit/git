@@ -18,7 +18,7 @@ function get_arch_images(){
     done
 }
 
-image="alpine/git"
+image="bahetiamit/git"
 if [[ "$TRAVIS_BRANCH" == "master" && "$TRAVIS_PULL_REQUEST" == false ]]; then
   docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD	
   NEXT_TAG=$(cat tag.txt)
